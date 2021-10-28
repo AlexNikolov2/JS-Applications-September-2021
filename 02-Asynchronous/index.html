@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>cclick me dick</button>
+    <script>
+        document.querySelector('button').addEventListener('click', onclick);
+
+        function onclick(){
+            const req = makeRequest();
+            req.then(data => console.log(data)).catch(error => console.log(error));
+        }
+        function makeRequest() {
+            return new Promise((resolve, reject) => {
+                fetch('https://swapi.dev/api/planets/1')
+          .then(response =>  response.json())
+            .then(resolve)
+            .catch(reject);
+            })
+          
+        }
+        //.then(res => res.json()).then(data => console.log(data));
+    </script>
+</body>
+</html>
