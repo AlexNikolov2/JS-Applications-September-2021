@@ -1,4 +1,5 @@
 function loadRepos() {
+	const list = document.getElementById('repos');
 	const username = document.getElementById('username').value;
 	const url = `https://api.github.com/users/${username}/repos`;
 
@@ -9,12 +10,12 @@ function loadRepos() {
 		}
 		return response.json()} )
 	.then(handleResponse)
-	.catch(err => console.log(err))
+	.catch(handleError)
 	
 	function handleResponse(data){
-		const list = document.getElementById('repos');
-		list.innerHTML = '';
 		
+		list.innerHTML = '';
+
 		for (const repo of data) {
 			const liEl = document.createElement('li');
 			liEl.innerHTML = `<a href=${repo.html_url}>
@@ -23,4 +24,8 @@ function loadRepos() {
 		list.appendChild(liEl);
 		}
 	};
+	function handleError(){
+		list.innerHTML = '';
+		list.innerHTML = '404 not found'
+	}
 }
