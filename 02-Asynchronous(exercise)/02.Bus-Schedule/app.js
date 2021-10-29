@@ -1,11 +1,12 @@
 function solve() {
 
+    
     function depart() {
-        console.log('Depart TODO...');
+        //http://localhost:3030/jsonstore/bus/schedule
     }
 
     function arrive() {
-        console.log('Arrive TODO...');
+       
     }
 
     return {

@@ -1,0 +1,1 @@
+print('da vi jaskam mamite')
