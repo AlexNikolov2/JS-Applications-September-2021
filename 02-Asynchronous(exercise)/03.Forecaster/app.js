@@ -1,11 +1,5 @@
 function attachEvents() {
-    
+//nema faida brato jas nisto ne znam ovaa nemozav da ja resam
 }
 
 attachEvents();
-
-async function getLocationCode(name){
-    const url = "http://localhost:3030/jsonstore/forecaster/locations"
-
-    
-}
