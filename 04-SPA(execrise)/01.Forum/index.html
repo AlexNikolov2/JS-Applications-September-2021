@@ -4,10 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="static/style.css">
+    <link rel="stylesheet" href="./static/style.css">
     <link href="https://fonts.googleapis.com/css?family=Parisienne&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@600;900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/3cd69e2433.js" crossorigin="anonymous"></script>
+    <script type="module" src="./src/app.js"></script>
     <title>SoftUni Forum</title>
 </head>
 
@@ -25,20 +26,20 @@
         <nav>
             <ul>
                 <li>
-                    <a href="#">Home</a>
+                    <a id="homeLink" href="/">Home</a>
                 </li>
             </ul>
         </nav>
     </header>
 
     <!-- homepage -->
-    <div class="container">
+    <div id="homeContainer" class="container">
         <main>
             <div class="new-topic-border">
                 <div class="header-background">
                     <span>New Topic</span>
                 </div>
-                <form>
+                <form id="createForm">
                     <div class="new-topic-title">
                         <label for="topicName">Title <span class="red">*</span></label>
                         <input type="text" name="topicName" id="topicName">
@@ -59,7 +60,7 @@
                 </form>
             </div>
 
-            <div class="topic-title">
+            <div id="topicsContainer" class="topic-title">
 
                 <!-- topic component  -->
                 <div class="topic-container">
