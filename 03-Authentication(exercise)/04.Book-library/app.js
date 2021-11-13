@@ -18,12 +18,12 @@ function editOrDelete(event){
         document.getElementById('createForm').style.display = 'none';
         document.getElementById('editForm').style.display = 'block';
         const bookId = event.target.parentNode.parentNode.dataset.id;
-        await editBook(bookId);
+        editBook(bookId);
     } else if (event.target.className == 'deleteBtn') {
         const confirmed = confirm('Are you sure you want to delete this book?');
         if (confirmed) {
             const bookId = event.target.parentNode.parentNode.dataset.id;
-            await deleteBook(bookId);
+            deleteBook(bookId);
         }
     }
 }
@@ -54,7 +54,7 @@ async function createBook(e){
     await fetch(url, options);
     await getBooks();
 }
-function updateBook(e){
+async function updateBook(e){
     e.preventDefault();
     const formData = new FormData(e.target);
     const id = formData.get('id');
@@ -76,5 +76,5 @@ async function deleteBook(id){
     const url = `https://localhost:3030/jsonstore/collections/books/${id}`;
     const options = {method: "DELETE"};
     await fetch(url, options);
-    await getBooks();
+    getBooks();
 }
