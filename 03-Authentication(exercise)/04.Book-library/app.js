@@ -72,7 +72,7 @@ async function editBook(id){
     document.querySelector('#editForm [name="title"]').value = book.title;
     document.querySelector('#editForm [name="author"]').value = book.author;
 }
-async function deleteBook(){
+async function deleteBook(id){
     const url = `https://localhost:3030/jsonstore/collections/books/${id}`;
     const options = {method: "DELETE"};
     await fetch(url, options);
