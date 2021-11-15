@@ -80,7 +80,7 @@ export const createCommentsSection = (topic, comments) => {
                     <button>Post</button>
                 </form>
             </div>`;
-        formDiv.addEventListener('submit', createCommentPost);
+        formDiv.addEventListener('submit', createCommentTopic);
         return formDiv;
     }
 
