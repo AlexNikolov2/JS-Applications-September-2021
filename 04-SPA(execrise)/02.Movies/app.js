@@ -1,60 +1,86 @@
-import { homeView } from './src/home.js';
-import { loginView } from './src/login.js';
-import { registerView } from './src/register.js'; 
-import { setupNav } from './src/nav.js';
-import { loginPost, registerPost, logout } from './src/data.js';
+
+import { setupHome, showHome } from './src/home.js';
+import { setupDetails } from './src/details.js';
+import { setupLogin, showLogin } from './src/login.js';
+import { setupRegister, showRegister } from './src/register.js';
+import { setupCreate, showCreate } from './src/create.js';
+import { setupEdit } from './src/edit.js';
 
 const main = document.querySelector('main');
-const nav = document.querySelector('nav');
 
-nav.addEventListener('click', e => {
-    const el = e.target;
-
-    if (el.tagName !== 'A') { return; }
-
-    e.preventDefault();
-
-    if (el.href.includes('profile')) {
-        return;
-    }
-
-    if (el.href.includes('login')) {
-        main.innerHTML = '';
-        const loginPage = loginView();
-        loginPage.getElementsByTagName('form')[0].addEventListener('submit', loginPost);
-        main.appendChild(loginPage);
-        return;
-    }
-
-    if (el.href.includes('register')) {
-        main.innerHTML = '';
-        const registerPage = registerView();
-        registerPage.getElementsByTagName('form')[0].addEventListener('submit', registerPost);
-        main.appendChild(registerPage);
-        return;
-    }
-
-    if (el.href.includes('logout')) {
-        logout();
-        return;
-    }
-
-    initialize();
-});
-
-export async function initialize() {
-    setupNav();
-    main.innerHTML = '';
-    
-    const homeSection = await homeView();
-    
-    main.appendChild(homeSection);
+const links = {
+    'homeLink': showHome,
+    'loginLink': showLogin,
+    'registerLink': showRegister,
+    'createLink': showCreate
 }
 
-export async function loadView(section) {
-    setupNav();
-    main.innerHTML = '';
-    main.appendChild(section);
+setupSection('home-page', setupHome);
+setupSection('add-movie', setupCreate);
+setupSection('movie-details', setupDetails);
+setupSection('edit-movie', setupEdit);
+setupSection('form-login', setupLogin);
+setupSection('form-sign-up', setupRegister);
+
+setupNavigation();
+
+showHome();
+
+function setupSection(sectionId, setup) {
+    const section = document.getElementById(sectionId);
+    setup(main, section);
 }
 
-initialize();
+function setupNavigation() {
+    const email = sessionStorage.getItem('email');
+    if (email != null) {
+        document.getElementById('welcome-msg').textContent = `Welcome, ${email}`;
+        [...document.querySelectorAll('nav .user')].forEach(l => l.style.display = 'block');
+        [...document.querySelectorAll('nav .guest')].forEach(l => l.style.display = 'none');
+    } else {
+        [...document.querySelectorAll('nav .user')].forEach(l => l.style.display = 'none');
+        [...document.querySelectorAll('nav .guest')].forEach(l => l.style.display = 'block');
+    }
+
+
+    document.querySelector('nav').addEventListener('click', (event) => {
+        if (event.target.tagName == 'A') {
+            const view = links[event.target.id];
+            if (typeof view == 'function') {
+                event.preventDefault();
+                view();
+            }
+        }
+    });
+    document.getElementById('createLink').addEventListener('click', (event) => {
+        event.preventDefault();
+        showCreate();
+    });
+    document.getElementById('logoutBtn').addEventListener('click', logout);
+}
+
+async function logout() {
+    const token = sessionStorage.getItem('authToken');
+    const url = `http://localhost:3030/users/logout`;
+    const options = {
+        method: 'get',
+        headers: {
+            'X-Authorization': token
+        }
+    }
+    const response = await fetch(url, options);
+
+    if (response.ok) {
+        sessionStorage.removeItem('authToken');
+        sessionStorage.removeItem('userId');
+        sessionStorage.removeItem('email');
+
+        [...document.querySelectorAll('nav .user')].forEach(l => l.style.display = 'none');
+        [...document.querySelectorAll('nav .guest')].forEach(l => l.style.display = 'block');
+
+        showHome();
+    } else {
+        const error = await response.json();
+        alert(error.message);
+    }
+}
