@@ -1,6 +1,6 @@
 import { html } from '../../node_modules/lit-html/lit-html.js'
 
-import { getMemeById, updateMeme } from '../api/data.js'
+import { getMemeById, editMeme } from '../api/data.js'
 import { notify } from '../notification.js'
 
 const editTemplate = (meme, onSubmit) => html`
@@ -44,7 +44,7 @@ export async function editPage(ctx) {
                 throw new Error('All fields are required! ');
             }
 
-            await updateMeme(memeId,
+            await editMeme(memeId,
                 {
                     title,
                     description,

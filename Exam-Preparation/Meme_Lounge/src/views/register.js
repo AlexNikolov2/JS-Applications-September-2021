@@ -57,7 +57,7 @@ export async function registerPage(ctx) {
             await register(username, email, password, gender);
 
             event.target.reset();
-            ctx.setUserNavigation();
+            ctx.setUserNav();
             ctx.page.redirect('/catalog');
         }
         catch (err) {

@@ -48,7 +48,7 @@ function setUserNav(){
 }
 async function logout(){
     await apiLogout();
-    setUserNavigation();
+    setUserNav();
     page.redirect('/');
 
 }

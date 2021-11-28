@@ -37,7 +37,7 @@ export async function loginPage(ctx) {
             await login(email, password);
 
             event.target.reset();
-            ctx.setUserNavigation();
+            ctx.setUserNav();
             ctx.page.redirect('/catalog');
         }
         catch (err) {
