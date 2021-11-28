@@ -1,5 +1,5 @@
 export const settings = {
-    host: 'http://localhost:3030'
+    host: ''
 }
 
 
@@ -22,7 +22,6 @@ async function request(url, options) {
         }
     }
     catch (err) {
-        console(err.message)
         throw err;
     }
 }

@@ -16,7 +16,6 @@ export async function getCarById(id){
 }
 
 export async function getMyCars(userId){
-    
     return await api.get(host + `/data/cars?where=_ownerId%3D%22${userId}%22&sortBy=_createdOn%20desc`)
 }
 
@@ -30,4 +29,7 @@ export async function editCar(id,data){
 
 export async function deleteCar(id){
     return api.del(host + '/data/cars/' + id);
+}
+export async function searchCar(query){
+    return api.get(host + `/data/cars?where=year%3D${query}`);
 }
