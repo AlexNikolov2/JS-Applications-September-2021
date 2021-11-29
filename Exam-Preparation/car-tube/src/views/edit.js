@@ -20,13 +20,13 @@ const editTemplate = (car, onSubmit) => html`
                     <input type="text" placeholder="Enter Description" name="description" value="${car.description}">
 
                     <p>Car Year</p>
-                    <input type="number" placeholder="Enter Car Year" name="year" .value="${car.year}">
+                    <input type="number" placeholder="Enter Car Year" name="year" value="${car.year}">
 
                     <p>Car Image</p>
-                    <input type="text" placeholder="Enter Car Image" name="imageUrl" .value="${car.imageUrl}">
+                    <input type="text" placeholder="Enter Car Image" name="imageUrl" value="${car.imageUrl}">
 
                     <p>Car Price</p>
-                    <input type="number" placeholder="Enter Car Price" name="price" .value="${car.price}">
+                    <input type="number" placeholder="Enter Car Price" name="price" value="${car.price}">
 
                     <hr>
                     <input type="submit" class="registerbtn" value="Edit Listing">
@@ -54,7 +54,6 @@ export async function editPage(ctx){
         let year = Number(formData.get('year'));
         let imageUrl = formData.get('imageUrl');
         let price = Number(formData.get('price'));
-        //let _ownerId = sessionStorage.getItem(userId); 
         if (brand === '' || model === '' || description === '' || year === '' || imageUrl === '' || price === '') {
             window.alert(`All fields must be filled`)
         } else {

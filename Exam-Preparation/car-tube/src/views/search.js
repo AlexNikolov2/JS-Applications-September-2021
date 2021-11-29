@@ -13,7 +13,6 @@ const searchTemplate = (data)=> html`
         ${
           (data)
           ? html`${data.map(itemTemplate)}`
-          
           : html`<p class="no-cars"> No results.</p>`
       } 
     </div>

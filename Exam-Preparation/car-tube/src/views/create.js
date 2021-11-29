@@ -46,7 +46,7 @@ export async function createPage(ctx) {
         if(price === ''||imageUrl ===''|| year === ''||description === ''||model ===''|| brand === ''){
            return window.alert('all fields must be filled')
         }
-        const car = {
+        const data = {
             brand,
             model,
             description,
@@ -55,8 +55,8 @@ export async function createPage(ctx) {
             price
         }
 
-        await createCar(car);
+        await createCar(data);
         ctx.setUserNav();
-        ctx.page.redirect('/allListings');
+        ctx.page.redirect('/catalog');
     }
 }
