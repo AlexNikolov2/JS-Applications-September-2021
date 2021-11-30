@@ -1,5 +1,5 @@
 export const settings = {
-    host : '',
+    host : 'http://localhost:3030',
 };
 async function request(url,options){
     try {

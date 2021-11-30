@@ -50,7 +50,7 @@ export async function registerPage(ctx) {
         }
             await register(email, password, rePass)
             ctx.setUserNav();
-            ctx.page.redirect('/dashboard');
+            ctx.page.redirect('/');
         
     }
 

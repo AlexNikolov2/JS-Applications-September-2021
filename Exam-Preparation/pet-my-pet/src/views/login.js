@@ -43,7 +43,7 @@ export async function loginPage(ctx) {
             }
             await login(email, password)
             ctx.setUserNav();
-            ctx.page.redirect('/dashboard');
+            ctx.page.redirect('/');
         }
     }
 }

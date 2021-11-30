@@ -52,7 +52,7 @@ export async function detailsPage(ctx) {
         const confirmed = confirm('Are you sure you want to delete the item?');
         if (confirmed) {
             await deletePet(ctx.params.id);
-            ctx.page.redirect('/dashboard');
+            ctx.page.redirect('/');
         }
     }
     async function onClick(e) {

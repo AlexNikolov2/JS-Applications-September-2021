@@ -56,6 +56,7 @@ export async function createPage(ctx) {
         let description = formData.get('description');
         let imageUrl = formData.get('imageUrl');
         let type = formData.get('type');
+        //let _ownerId = sessionStorage.getItem(userId); 
         if (name === '' || description === '' || imageUrl === '' || type === '') {
             return window.alert(`all fields must be filled`)
         }
@@ -67,7 +68,7 @@ export async function createPage(ctx) {
         }
         await createPet(data)
         ctx.setUserNav();
-        ctx.page.redirect('/dashboard');
+        ctx.page.redirect('/');
 
     }
 

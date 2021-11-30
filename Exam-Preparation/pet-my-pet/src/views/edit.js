@@ -1,4 +1,4 @@
-import { html, render } from '../../node_modules/lit-html/lit-html.js';
+import { html} from '../../node_modules/lit-html/lit-html.js';
 import { getPetById } from '../api/data.js';
 import {editPet} from '../api/data.js'
 

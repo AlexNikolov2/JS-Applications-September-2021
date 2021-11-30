@@ -16,7 +16,7 @@ window.api = api;
 const main = document.getElementsByTagName('main')[0];
 
 
-page('/dashboard', decorateContext, dashboardPage);
+page('/', decorateContext, dashboardPage);
 page('/register', decorateContext, registerPage);
 page('/login', decorateContext, loginPage);
 page('/create',decorateContext, createPage);
@@ -53,6 +53,6 @@ document.getElementById('logout').addEventListener('click',async function(){
     if (sessionStorage.length !== 0) {
         await logout();
         setUserNav();
-        page.redirect('/dashboard');
+        page.redirect('/');
     }
 });
