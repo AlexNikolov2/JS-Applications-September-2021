@@ -1,6 +1,6 @@
 import {html} from '../../node_modules/lit-html/lit-html.js';
 
-const itemTemplate = (item) => html`
+export const itemTemplate = (item) => html`
 <li class="otherBooks">
         <h3>${item.title}</h3>
         <p>Type: ${item.type}</p>
