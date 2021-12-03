@@ -1,6 +1,6 @@
 import {html} from '../../node_modules/lit-html/lit-html.js'
 
-export const gameTemplate = (game) => html`
+export const itemTemplate = (game) => html`
 <div class="allGames">
     <div class="allGames-info">
         <img src=${game.imageUrl}>
