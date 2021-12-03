@@ -8,8 +8,5 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "lit-html": "^2.0.2"
-  }
+  "license": "ISC"
 }
