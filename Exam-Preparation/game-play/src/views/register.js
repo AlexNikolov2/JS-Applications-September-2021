@@ -31,7 +31,7 @@ export async function registerPage(ctx) {
         const password = formData.get('password').trim();
         const repeatPass = formData.get('confirm-password').trim();
 
-        if (!email || !password || !repeatPass) {
+        if (email == '' || password == '' || repeatPass == '') {
             return alert('All fields are requirerd!');
         }
         if (password != repeatPass) {
