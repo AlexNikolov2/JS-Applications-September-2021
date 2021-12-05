@@ -30,10 +30,10 @@ export async function deleteArticle(id){
 
 export async function searchArticle(query){
     return api.get(host + `/data/wiki?where=title%20LIKE%20%22${query}%22`);
-
 }
+
+
 
 export async function getRecentArticles(){
     return api.get(host + '/data/wiki?sortBy=_createdOn%20desc&distinct=category')
-
 }
