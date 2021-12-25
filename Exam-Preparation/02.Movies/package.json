@@ -1,15 +1,17 @@
 {
-  "name": "02.Movies",
+  "name": "02-movies",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev" : "http-server -a localhost -p 3000 -P http://localhost:3000? -c-1",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "http-server": "^14.0.0",
     "lit-html": "^2.0.2",
     "page": "^1.11.6"
   }

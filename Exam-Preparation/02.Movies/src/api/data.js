@@ -28,9 +28,6 @@ export async function getLikes(movieId){
 export async function likeMovie(){
     return await api.post(host + `/data/likes`)
 }
-export async function unlikeMovie(){
-    return await api.del(host + `/data/likes`)
-}
 export async function getLikeByUser(userId){
     return await api.get(host + `/data/likes?where=movieId%3D%22${movieId}%22%20and%20_ownerId%3D%22${userId}%22`)
 }
