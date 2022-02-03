@@ -42,6 +42,6 @@ Exam Preparation solved:
 * - [x] Soft Wiki
 
 **Exam - 04/12/2021** 
-[x] Music App
+* - [x] Music App
 
 ![exam](https://github.com/AlexNikolov2/JS-Applications-September-2021/blob/master/104%20outta%20110.png)
