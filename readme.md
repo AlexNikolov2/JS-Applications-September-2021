@@ -45,3 +45,5 @@ Exam Preparation solved:
 * - [x] Music App
 
 ![exam](https://github.com/AlexNikolov2/JS-Applications-September-2021/blob/master/104%20outta%20110.png)
+
+[Oh, and here's my certificate](https://softuni.bg/Certificates/Details/121069/69f54a56)
